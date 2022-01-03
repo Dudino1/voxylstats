@@ -3,8 +3,8 @@ import { RemixBrowser } from "remix";
 
 import { CacheProvider, ThemeProvider } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
-import createEmotionCache from "./src/createEmotionCache";
-import theme from "./src/theme";
+import createEmotionCache from "./mui/createEmotionCache";
+import theme from "./mui/theme";
 
 const emotionCache = createEmotionCache();
 

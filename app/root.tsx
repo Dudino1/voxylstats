@@ -9,10 +9,10 @@ import {
 } from "remix";
 import type { MetaFunction } from "remix";
 
-import theme from "./src/theme";
-import Layout from "./src/Layout";
+import theme from "./mui/theme";
+import Layout from "./mui/Layout";
 import { useContext } from "react";
-import StylesContext from "./src/StylesContext";
+import StylesContext from "./mui/StylesContext";
 
 function Document({
   children,

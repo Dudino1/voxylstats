@@ -2,13 +2,13 @@ import { renderToString } from "react-dom/server";
 import { RemixServer } from "remix";
 import type { EntryContext } from "remix";
 
-import theme from "./src/theme";
-import createEmotionCache from "./src/createEmotionCache";
+import theme from "./mui/theme";
+import createEmotionCache from "./mui/createEmotionCache";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import { CacheProvider } from "@emotion/react";
 import createEmotionServer from "@emotion/server/create-instance";
-import StylesContext from "./src/StylesContext";
+import StylesContext from "./mui/StylesContext";
 
 export default function handleRequest(
   request: Request,

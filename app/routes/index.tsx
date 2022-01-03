@@ -1,12 +1,4 @@
-import {
-  MetaFunction,
-  LinksFunction,
-  LoaderFunction,
-  Form,
-  ActionFunction,
-  useActionData,
-} from "remix";
-import { useLoaderData } from "remix";
+import { MetaFunction, LinksFunction, Form } from "remix";
 import { Button, Grid, styled, TextField, Typography } from "@mui/material";
 
 export let meta: MetaFunction = () => {
@@ -14,10 +6,6 @@ export let meta: MetaFunction = () => {
     title: "Voxyl Stats",
     description: "nice epic!! api!!!",
   };
-};
-
-export let links: LinksFunction = () => {
-  return [];
 };
 
 const Header = styled(Typography)({
