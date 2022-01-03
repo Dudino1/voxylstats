@@ -22,7 +22,6 @@ async function fetchGameStats(api: string, uuid: string): Promise<GameStats> {
   url.searchParams.set("api", api);
 
   const response = await fetch(url.href).then((resp) => resp.json());
-  console.log("getGameStats", response);
   return gameStatsSchema.parse(response);
 }
 

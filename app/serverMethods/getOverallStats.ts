@@ -19,7 +19,6 @@ async function fetchOverallStats(
   url.searchParams.set("api", api);
 
   const response = await fetch(url.href).then((resp) => resp.json());
-  console.log("getOverallStats", response);
   return overallStatsSchema.parse(response);
 }
 

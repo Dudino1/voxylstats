@@ -1,0 +1,26 @@
+diff --git a/node_modules/wrangler/wrangler-dist/cli.js b/node_modules/wrangler/wrangler-dist/cli.js
+index e5808ce..9852330 100644
+--- a/node_modules/wrangler/wrangler-dist/cli.js
++++ b/node_modules/wrangler/wrangler-dist/cli.js
+@@ -123981,6 +123981,8 @@ init_import_meta_url();
+ var import_path6 = __toModule(require("path"));
+ var import_esbuild2 = __toModule(require("esbuild"));
+ var import_url2 = __toModule(require("url"));
++var nodeModulesPolyfill = __toModule(require("@esbuild-plugins/node-modules-polyfill"));
++var nodeGlobalsPolyfill = __toModule(require("@esbuild-plugins/node-globals-polyfill"));
+ var sanitizedDirname;
+ try {
+   sanitizedDirname = import_path6.default.dirname((0, import_url2.fileURLToPath)(import_meta_url));
+@@ -124004,6 +124006,12 @@ function buildWorker({
+     format: "esm",
+     target: "esnext",
+     outfile,
++    plugins: [
++      nodeModulesPolyfill.NodeModulesPolyfillPlugin(),
++      nodeGlobalsPolyfill.NodeGlobalsPolyfillPlugin({
++        buffer: true,
++      }),
++    ],
+     minify,
+     sourcemap,
+     watch: watch3,

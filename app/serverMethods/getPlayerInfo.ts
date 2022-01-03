@@ -16,7 +16,6 @@ async function fetchPlayerInfo(api: string, uuid: string): Promise<PlayerInfo> {
   url.searchParams.set("api", api);
 
   const response = await fetch(url.href).then((resp) => resp.json());
-  console.log("getPlayerInfo", response);
   return playerInfoSchema.parse(response);
 }
 
