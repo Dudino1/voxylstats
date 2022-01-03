@@ -1,5 +1,20 @@
+diff --git a/node_modules/@emotion/cache/package.json b/node_modules/@emotion/cache/package.json
+index 437f0bf..1ed0814 100644
+--- a/node_modules/@emotion/cache/package.json
++++ b/node_modules/@emotion/cache/package.json
+@@ -5,8 +5,8 @@
+   "main": "dist/emotion-cache.cjs.js",
+   "module": "dist/emotion-cache.esm.js",
+   "browser": {
+-    "./dist/emotion-cache.cjs.js": "./dist/emotion-cache.browser.cjs.js",
+-    "./dist/emotion-cache.esm.js": "./dist/emotion-cache.browser.esm.js"
++    "./dist/emotion-cache.cjs.js": "./dist/emotion-cache.cjs.js",
++    "./dist/emotion-cache.esm.js": "./dist/emotion-cache.esm.js"
+   },
+   "types": "types/index.d.ts",
+   "license": "MIT",
 diff --git a/node_modules/@emotion/cache/src/index.js b/node_modules/@emotion/cache/src/index.js
-index afde219..a1fd0d3 100644
+index afde219..29d9095 100644
 --- a/node_modules/@emotion/cache/src/index.js
 +++ b/node_modules/@emotion/cache/src/index.js
 @@ -20,7 +20,7 @@ import {
@@ -7,7 +22,7 @@ index afde219..a1fd0d3 100644
  import type { StylisPlugin } from './types'
  
 -let isBrowser = typeof document !== 'undefined'
-+let isBrowser = "document" in globaalThis && typeof document !== 'undefined'
++let isBrowser = "document" in globalThis && typeof document !== 'undefined'
  
  export type Options = {
    nonce?: string,
