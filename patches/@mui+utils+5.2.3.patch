@@ -1,0 +1,12 @@
+diff --git a/node_modules/@mui/utils/esm/deepmerge.js b/node_modules/@mui/utils/esm/deepmerge.js
+index ea33702..1c7226b 100644
+--- a/node_modules/@mui/utils/esm/deepmerge.js
++++ b/node_modules/@mui/utils/esm/deepmerge.js
+@@ -1,6 +1,6 @@
+ import _extends from "@babel/runtime/helpers/esm/extends";
+ export function isPlainObject(item) {
+-  return item !== null && typeof item === 'object' && item.constructor === Object;
++  return item !== null && typeof item === 'object';
+ }
+ export default function deepmerge(target, source, options = {
+   clone: true

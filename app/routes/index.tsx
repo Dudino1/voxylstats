@@ -7,7 +7,7 @@ import {
   useActionData,
 } from "remix";
 import { useLoaderData } from "remix";
-import { Grid, Typography } from "@mui/material";
+import { Button, Grid, styled, TextField, Typography } from "@mui/material";
 
 export let meta: MetaFunction = () => {
   return {
@@ -20,18 +20,38 @@ export let links: LinksFunction = () => {
   return [];
 };
 
+const Header = styled(Typography)({
+  textAlign: "center",
+});
+
 export default function Index() {
   return (
-    <p>hi</p>
-    // <Grid>
-    //   <Grid item xs={8} sm={6} md={4} lg={2} xl={1}>
-    //     <Typography variant="h2" component="h1">
-    //       welcoem to the aweosme... api!!!
-    //     </Typography>
-    //     <Form method="get" action="/player">
-    //       <input type="text" name="username" />
-    //     </Form>
-    //   </Grid>
-    // </Grid>
+    <Form method="get" action="/player">
+      <Grid
+        container
+        flexDirection="column"
+        alignItems="stretch"
+        justifyContent="center"
+        spacing={4}
+      >
+        <Grid item>
+          <Header variant="h2">welcoem to the aweosme... api!!!</Header>
+        </Grid>
+        <Grid item>
+          <TextField
+            type="text"
+            name="username"
+            label="Minecraft Username"
+            variant="outlined"
+            fullWidth
+          />
+        </Grid>
+        <Grid item container justifyContent="center">
+          <Button type="submit" variant="contained">
+            checc their stats!!1!
+          </Button>
+        </Grid>
+      </Grid>
+    </Form>
   );
 }

@@ -16,11 +16,8 @@ export default function handleRequest(
   responseHeaders: Headers,
   remixContext: EntryContext
 ) {
-  console.log("got to handleRequest!");
   const cache = createEmotionCache();
-  console.log("1");
   const { extractCriticalToChunks } = createEmotionServer(cache);
-  console.log("2");
 
   const MuiRemixServer = () => (
     <CacheProvider value={cache}>
@@ -30,7 +27,6 @@ export default function handleRequest(
       </ThemeProvider>
     </CacheProvider>
   );
-  console.log("3");
 
   // Render the component to a string.
   const html = renderToString(
@@ -39,22 +35,18 @@ export default function handleRequest(
     </StylesContext.Provider>
   );
 
-  console.log("4");
   // Grab the CSS from emotion
   const emotionChunks = extractCriticalToChunks(html);
 
-  console.log("5");
   // Re-render including the extracted css.
   const markup = renderToString(
     <StylesContext.Provider value={emotionChunks.styles}>
       <MuiRemixServer />
     </StylesContext.Provider>
   );
-  console.log("6");
 
   responseHeaders.set("Content-Type", "text/html");
 
-  console.log("7");
   return new Response("<!DOCTYPE html>" + markup, {
     status: responseStatusCode,
     headers: responseHeaders,
