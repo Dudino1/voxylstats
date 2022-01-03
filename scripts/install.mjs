@@ -16,15 +16,18 @@ function create(modName, polyfillName = modName, hasDefault = true) {
   const packageJson = `{
     "name": "${modName}",
     "version": "1.0.0",
-    "main": "index.mjs",
+    "main": "index.js",
     "license": "MIT"
 }`;
 
-  const indexMjs = `
-export * from "rollup-plugin-node-polyfills/polyfills/${polyfillName}";
-${
-  hasDefault &&
-  `export { default } from "rollup-plugin-node-polyfills/polyfills/${polyfillName}";`
+  const indexJs = `
+const polyfill = require("rollup-plugin-node-polyfills/polyfills/${polyfillName}");
+
+if (polyfill.default) {
+  Object.assign(polyfill.default, polyfill);
+  module.exports = polyfill.default;
+} else {
+  module.exports = polyfill;
 }
 `;
 
@@ -34,7 +37,7 @@ ${
 
   mkdirSync(`./node_modules/${modName}/`);
   writeFileSync(`./node_modules/${modName}/package.json`, packageJson);
-  writeFileSync(`./node_modules/${modName}/index.mjs`, indexMjs);
+  writeFileSync(`./node_modules/${modName}/index.js`, indexJs);
 }
 
 function emotionCacheShim() {
