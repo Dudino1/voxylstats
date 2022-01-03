@@ -1,0 +1,12 @@
+diff --git a/node_modules/duplexer2/node_modules/readable-stream/lib/_stream_writable.js b/node_modules/duplexer2/node_modules/readable-stream/lib/_stream_writable.js
+index b0b0220..6beed9e 100644
+--- a/node_modules/duplexer2/node_modules/readable-stream/lib/_stream_writable.js
++++ b/node_modules/duplexer2/node_modules/readable-stream/lib/_stream_writable.js
+@@ -24,6 +24,7 @@
+ // the drain event emission and buffering.
+ 
+ 'use strict';
++var process = require("process");
+ 
+ /*<replacement>*/
+ 

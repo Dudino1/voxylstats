@@ -6,7 +6,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production remix build",
     "dev": "cross-env NODE_ENV=development run-p dev:*",
-    "postinstall": "remix setup cloudflare-pages && patch-package",
+    "postinstall": "remix setup cloudflare-pages && patch-package && node ./scripts/install.mjs",
     "dev:remix": "remix watch",
     "dev:wrangler": "source $PWD/.env && wrangler pages dev ./public --binding API_KEY=$API_KEY --kv MINECRAFT_UUIDS --kv VOXYL_CACHE --watch ./build",
     "start": "npm run dev:wrangler"
@@ -37,6 +37,7 @@
     "esbuild": "0.13.14",
     "npm-run-all": "^4.1.5",
     "patch-package": "^6.4.7",
+    "rollup-plugin-node-polyfills": "^0.2.1",
     "typescript": "^4.1.2",
     "wrangler": "^0.0.0-8ab7d2e"
   },
