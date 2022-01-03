@@ -1,0 +1,13 @@
+diff --git a/node_modules/@emotion/cache/src/index.js b/node_modules/@emotion/cache/src/index.js
+index afde219..a1fd0d3 100644
+--- a/node_modules/@emotion/cache/src/index.js
++++ b/node_modules/@emotion/cache/src/index.js
+@@ -20,7 +20,7 @@ import {
+ } from './stylis-plugins'
+ import type { StylisPlugin } from './types'
+ 
+-let isBrowser = typeof document !== 'undefined'
++let isBrowser = "document" in globaalThis && typeof document !== 'undefined'
+ 
+ export type Options = {
+   nonce?: string,
